@@ -1,0 +1,5 @@
+
+
+
+
+docker run -it -d --name php73 -v /home/ubuntu/docker/php73new/:/var/www/html/ -p 8800:80 -p 8801:443 --privileged image:name
