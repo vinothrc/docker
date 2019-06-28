@@ -1,0 +1,18 @@
+Docker Mysql
+https://hub.docker.com/_/mysql
+https://hub.docker.com/r/mysql/mysql-server/
+https://dev.mysql.com/doc/mysql-installation-excerpt/5.5/en/docker-mysql-getting-started.html
+
+docker pull mysql/mysql-server:5.5
+docker pull mysql/mysql-server:5.6
+docker pull mysql/mysql-server:5.7
+docker pull mysql/mysql-server:8.0
+
+docker pull mysql:5.5
+docker pull mysql:5.6
+docker pull mysql:5.7
+docker pull mysql:8.0
+
+docker run --name some-mysql -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+
+docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
