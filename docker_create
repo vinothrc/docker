@@ -1,0 +1,37 @@
+1. Install docker in ubuntu 18.04
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt-get install -y docker-ce
+sudo systemctl status docker
+
+2. Add user to docker
+
+usermod -aG docker user1
+
+3. Download latest ubuntu
+
+docker pull ubuntu
+docker pull ubuntu:14.04
+docker pull ubuntu:16.04
+docker pull ubuntu:18.04
+docker pull debian:jessie
+docker pull fedora
+docker pull --all-tags ubuntu
+
+4. List Docker images
+
+docker images
+
+5. Run docker container with latest ubuntu
+
+docker run -it --name test1 -v /newvolume/files/test/:/var/www/html/ -p 80:80 -p 443:443 --privileged ubuntu
+
+6. Start Docker
+
+docker start test1
+
+7. Run the below command to login to Docker container
+
+docker exec -it test1 /bin/bash
