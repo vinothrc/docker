@@ -1,0 +1,3 @@
+ip a | grep docker | grep inet
+
+docker inspect test1 | grep IPAddress
