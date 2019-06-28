@@ -1,0 +1,25 @@
+If you want to take backup of the existing container and run new one with same (clone)
+
+1. Commit Docker image
+docker ps -a
+
+docker commit c51c2f6f3a95 php5.6-image
+docker commit c51c2f6f3a95 php7.0-image
+docker commit c51c2f6f3a95 php7.1-image
+docker commit c51c2f6f3a95 php7.2-image
+docker commit c51c2f6f3a95 php7.3-image
+
+2. List Docker images
+docker images
+
+3. Create Docker container with existing image
+
+docker run -it --name test2 -v /newvolume/files/test2/:/var/www/html/ -p 6014:80 -p 6015:443 --privileged php7.3-image
+
+4. Start Docker
+
+docker start test1
+
+5. Run the below command to login to Docker container
+
+docker exec -it test2 /bin/bash
