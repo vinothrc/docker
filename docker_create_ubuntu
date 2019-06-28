@@ -35,3 +35,15 @@ docker start test1
 7. Run the below command to login to Docker container
 
 docker exec -it test1 /bin/bash
+
+8. Stop docker instance
+
+docker stop test1
+
+9. Remove docker container
+
+docker rm test1
+
+10. List docker containers
+
+docker ps -a
