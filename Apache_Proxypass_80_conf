@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+        ServerName example.com
+        ProxyPass / http://example.com:8028/
+        ProxyPassReverse / http://example.com:8028/
+RewriteEngine on
+RewriteCond %{SERVER_NAME} =example.com:8028
+RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
