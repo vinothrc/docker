@@ -29,10 +29,9 @@
 - It uses a YAML file to configure the application's services, networks, and volumes.
 - With Docker Compose, you can define complex multi-container environments and manage them as a single unit.
 
-**Docker Registry:**
+**Docker Registry:**[link](https://hub.docker.com/)
 - A storage and distribution system for Docker images. It can be either public or private and is used to store and share Docker images within an organization or with external users.
 
-[Registry](https://hub.docker.com/)
 
 *******
 **Basic Commands:**
