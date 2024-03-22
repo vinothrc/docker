@@ -3,7 +3,7 @@
 * Docker is an open-source platform for building, shipping, and running applications inside containers.
 * Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
 
-**Docker Engine:** 
+**Docker Engine:**
 - The software responsible for running and managing Docker containers on the host system.
 
 **Dockerfile**
@@ -39,5 +39,3 @@
 `docker rm <container>`: Removes a container.
 `docker rmi <image>`: Removes an image.
 `docker exec -it <container> <command>`: Execute a command in a running container.
-
-
