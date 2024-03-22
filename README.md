@@ -12,10 +12,15 @@
 ***Dockerfile Instructions:***
 
 `FROM`: Specifies the base image for the new image.
+
 `RUN`: Executes commands inside the image during the build process.
+
 `COPY / ADD`: Copies files or directories from the host into the image.
+
 `WORKDIR`: Sets the working directory for subsequent instructions.
+
 `EXPOSE`: Informs Docker that the container listens on specific network ports at runtime.
+
 `CMD / ENTRYPOINT`: Specifies the command to run when the container starts.
 
 
@@ -31,14 +36,23 @@
 **Basic Commands:**
 
 `docker run <image>`: Runs a command in a new container.
+
 `docker build <path>`: Builds an image from a Dockerfile.
+
 `docker pull <image>`: Pulls an image or a repository from a registry.
+
 `docker push <image>`: Pushes an image or a repository to a registry.
+
 `docker ps`: Lists all running containers.
+
 `docker images`: Lists all available images.
+
 `docker stop <container>`: Stops a running container.
+
 `docker rm <container>`: Removes a container.
+
 `docker rmi <image>`: Removes an image.
+
 `docker exec -it <container> <command>`: Execute a command in a running container.
 
 
