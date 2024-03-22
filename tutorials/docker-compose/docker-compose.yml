@@ -1,0 +1,36 @@
+# docker-compose.yml
+version: '3.4'
+
+services:
+
+  java-app:
+    image: dr.zyliq.com/java-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./java/java21.dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./log/app-log/:/var/log/
+      #- ./java/app:/app/
+
+  nginx:
+    image: dr.zyliq.com/nginx-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./nginx/nginx.dockerfile
+    ports:
+      - 8081:80
+
+  python-ml:
+    image: dr.zyliq.com/python-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./python/python.dockerfile
+    ports:
+      - 5000:5000
+
+        
