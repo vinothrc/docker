@@ -10,6 +10,7 @@
 - A text file that contains instructions for building a Docker image. It specifies the base image, dependencies, environment variables, and commands needed to set up the application.
 
 ***Dockerfile Instructions:***
+
 `FROM`: Specifies the base image for the new image.
 `RUN`: Executes commands inside the image during the build process.
 `COPY / ADD`: Copies files or directories from the host into the image.
@@ -39,3 +40,8 @@
 `docker rm <container>`: Removes a container.
 `docker rmi <image>`: Removes an image.
 `docker exec -it <container> <command>`: Execute a command in a running container.
+
+
+```bash
+docker exec -it test1 bash
+```
