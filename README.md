@@ -32,6 +32,8 @@
 **Docker Registry:**
 - A storage and distribution system for Docker images. It can be either public or private and is used to store and share Docker images within an organization or with external users.
 
+[Registry](https://hub.docker.com/)
+
 *******
 **Basic Commands:**
 
