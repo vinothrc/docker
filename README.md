@@ -1,6 +1,6 @@
 # Docker
 
-* Docker is an open-source platform for building, shipping, and running applications inside containers.
+* Docker is a platform for developing, shipping, and running applications using containerization. 
 * Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
 
 **Docker Engine:**
@@ -36,27 +36,68 @@
 *******
 **Basic Commands:**
 
+`docker build <path>`: Builds an image from a Dockerfile.
+
+```bash
+docker build -t python-demo -f python.dockerfile .
+```
+
 `docker run <image>`: Runs a command in a new container.
 
-`docker build <path>`: Builds an image from a Dockerfile.
+```bash
+docker run -it -p 5000:5000 python-demo:latest
+```
 
 `docker pull <image>`: Pulls an image or a repository from a registry.
 
+```bash
+docker pull python:3.10
+```
+
 `docker push <image>`: Pushes an image or a repository to a registry.
 
-`docker ps`: Lists all running containers.
+```bash
+docker push docker.io/library/python/demo:latest
+```
+`docker ps [OPTIONS]`: Lists all running containers.
+
+```bash
+docker ps -a
+```
 
 `docker images`: Lists all available images.
 
+```bash
+docker images
+```
+
 `docker stop <container>`: Stops a running container.
+
+```bash
+docker stop python-demo
+```
 
 `docker rm <container>`: Removes a container.
 
+```bash
+docker rm python-demo
+```
+
 `docker rmi <image>`: Removes an image.
+
+```bash
+docker rmi python-demo:latest
+```
 
 `docker exec -it <container> <command>`: Execute a command in a running container.
 
 
 ```bash
-docker exec -it test1 bash
+docker exec -it python-demo bash
 ```
+
+`docker inspect <container>`: To retrieve information about Docker objects.
+
+```bash
+docker inspect python-demo
+```   
