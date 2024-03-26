@@ -11,6 +11,16 @@
 **Dockerfile**
 - A text file that contains instructions for building a Docker image. It specifies the base image, dependencies, environment variables, and commands needed to set up the application.
 
+```bash
+#python.dockerfile
+FROM python:3.11-alpine
+LABEL maintainer="vinothrclaksh@gmail.com"
+COPY ./python /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+EXPOSE 5000
+CMD ["python", "/app/app.py"]
+```
 ***Dockerfile Instructions:***
 
 `FROM`: Specifies the base image for the new image.
@@ -30,6 +40,42 @@
 - Docker Compose is a tool for defining and running multi-container Docker applications.
 - It uses a YAML file to configure the application's services, networks, and volumes.
 - With Docker Compose, you can define complex multi-container environments and manage them as a single unit.
+
+```bash
+# docker-compose.yml
+version: '3.4'
+services:
+
+  java-app:
+    image: dr.zyliq.com/java-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./java/java21.dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./log/app-log/:/var/log/
+      #- ./java/app:/app/
+
+  nginx:
+    image: dr.zyliq.com/nginx-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./nginx/nginx.dockerfile
+    ports:
+      - 8081:80
+
+  python-ml:
+    image: dr.zyliq.com/python-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./python/python.dockerfile
+    ports:
+      - 5000:5000
+```
 
 **Docker Registry:** [DockerHub](https://hub.docker.com/)
 - A storage and distribution system for Docker images. It can be either public or private and is used to store and share Docker images within an organization or with external users.
