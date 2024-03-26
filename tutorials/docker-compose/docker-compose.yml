@@ -1,9 +1,42 @@
-# docker-compose.yml
 version: '3.4'
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.25.0.0/16
+
 services:
 
+  mysql:
+    image: mysql-demo:latest
+    environment:
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test_user
+      - MYSQL_PASSWORD=TestUserPas5
+      - MYSQL_ROOT_PASSWORD=TestRootPas5
+    restart: always
+    build:
+      context: .
+      dockerfile: ./mysql/mysql.dockerfile
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3308:3306
+    volumes:
+      - ./log/mysql-log:/var/log
+      - ./mysql/mysql-data:/var/lib/mysql
+      - ./mysql/conf.d/mysql-conf:/etc/my.cnf.d
+      - ./mysql/conf.d/mysql-query:/docker-entrypoint-initdb.d
+      - type: bind
+        source: ./mysql/conf.d/mysql-conf/mysql.conf.orig
+        target: /etc/my.cnf
+    networks:
+      app-network:
+        ipv4_address: 10.25.1.1
+
   java-app:
-    image: dr.zyliq.com/java-demo:latest
+    image: java-demo:latest
     restart: always
     build:
       context: .
@@ -12,24 +45,30 @@ services:
       - 8080:8080
     volumes:
       - ./log/app-log/:/var/log/
-      #- ./java/app:/app/
-
-  nginx:
-    image: dr.zyliq.com/nginx-demo:latest
-    restart: always
-    build:
-      context: .
-      dockerfile: ./nginx/nginx.dockerfile
-    ports:
-      - 8081:80
+    networks:
+      app-network:
+        ipv4_address: 10.25.1.2
 
   python-ml:
-    image: dr.zyliq.com/python-demo:latest
+    image: python-demo:latest
     restart: always
     build:
       context: .
       dockerfile: ./python/python.dockerfile
     ports:
       - 5000:5000
+    networks:
+      app-network:
+        ipv4_address: 10.25.1.3
 
-        
+  nginx:
+    image: nginx-demo:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: ./nginx/nginx.dockerfile
+    ports:
+      - 8081:80
+    networks:
+      app-network:
+        ipv4_address: 10.25.1.4

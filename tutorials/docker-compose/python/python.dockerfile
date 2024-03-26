@@ -1,7 +1,8 @@
-FROM python:3.11-alpine
+FROM python:3.11
 LABEL maintainer="vinothrclaksh@gmail.com"
-COPY ./python /app
 WORKDIR /app
+COPY ./python/ /app
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD ["python", "/app/app.py"]
+CMD ["tail", "-f","/dev/null"]
+#CMD ["python", "/app/app.py"]
