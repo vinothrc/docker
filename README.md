@@ -11,30 +11,29 @@
 **Dockerfile**
 - A text file that contains instructions for building a Docker image. It specifies the base image, dependencies, environment variables, and commands needed to set up the application.
 
-```bash
-#python.dockerfile
-FROM python:3.11-alpine
-LABEL maintainer="vinothrclaksh@gmail.com"
-COPY ./python /app
-WORKDIR /app
-RUN pip install -r requirements.txt
-EXPOSE 5000
-CMD ["python", "/app/app.py"]
-```
 ***Dockerfile Instructions:***
 
 `FROM`: Specifies the base image for the new image.
-
-`RUN`: Executes commands inside the image during the build process.
-
-`COPY / ADD`: Copies files or directories from the host into the image.
 
 `WORKDIR`: Sets the working directory for subsequent instructions.
 
 `EXPOSE`: Informs Docker that the container listens on specific network ports at runtime.
 
+`RUN`: Executes commands inside the image during the build process.
+
+`COPY / ADD`: Copies files or directories from the host into the image.
+
 `CMD / ENTRYPOINT`: Specifies the command to run when the container starts.
 
+```bash
+#python.dockerfile
+FROM python:3.11-alpine
+WORKDIR /app
+EXPOSE 5000
+RUN pip install -r requirements.txt
+COPY ./python /app
+CMD ["python", "/app/app.py"]
+```
 
 **Docker Compose:**
 - Docker Compose is a tool for defining and running multi-container Docker applications.
