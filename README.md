@@ -1,7 +1,9 @@
 # Docker
 
-* Docker is a platform for developing, shipping, and running applications using containerization. 
-* Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package.
+* Docker is a platform that allows you to build, test, and deploy applications quickly. 
+* Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
+* Using Docker, you can quickly deploy and scale applications into any environment.
+
 
 **Docker Engine:**
 - The software responsible for running and managing Docker containers on the host system.
