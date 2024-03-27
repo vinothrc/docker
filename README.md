@@ -143,6 +143,12 @@ docker rmi python-demo:latest
 docker exec -it python-demo bash
 ```
 
+` docker logs <container>`: To check the docker logs
+
+```bash
+docker logs --tail 100 -ft python-demo
+```
+
 `docker inspect <container>`: To retrieve information about Docker objects.
 
 ```bash
