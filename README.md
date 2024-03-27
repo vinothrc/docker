@@ -76,6 +76,9 @@ services:
       - 5000:5000
 ```
 
+**Docker Image:**
+- A Docker image is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and dependencies. It is built from a Dockerfile, which contains instructions for creating the image.
+
 **Docker Registry:** [DockerHub](https://hub.docker.com/)
 - A storage and distribution system for Docker images. It can be either public or private and is used to store and share Docker images within an organization or with external users.
 
