@@ -5,4 +5,5 @@ ENV DEBIAN_FRONTEND teletype
 WORKDIR /app
 
 COPY ./java/app .
-ENTRYPOINT [ "/bin/bash", "/app/start.sh" ]
+CMD ["tail", "-f","/dev/null"]
+#ENTRYPOINT [ "/bin/bash", "/app/start.sh" ]
